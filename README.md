@@ -10,7 +10,7 @@ To install it right away for all Debian based LINUX users type:
 
 git clone https://github.com/nazmulchowdhury/sound-trimmer.git
   
-cd ; sudo mv sound-trimmer /usr/bin
+cd sound-trimmer ; sudo mv sound-trimmer /usr/bin
   
 sudo chown root:root /usr/bin/sound-trimmer
   
