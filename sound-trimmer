@@ -1,0 +1,33 @@
+#! /bin/bash
+
+trimmer() {
+	for ((i=1; i<=$#; i++)); do
+		[ $i -eq 1 ]; FILENAME="${1}"
+		[ $i -eq 2 ]; START="${2}"
+		[ $i -eq 3 ]; STOP="${3}"
+	done
+
+	REGEX='[0-9][0-9]:[0-5][0-9]:[0-5][0-9]'
+
+	if [[ "$START" =~ $REGEX && "$STOP" =~ $REGEX ]]; then
+		ffmpeg -i "$FILENAME" -ss $START -to $STOP -c copy NEW"$FILENAME"
+		if [[ $? -eq 0 ]]; then
+			rm "$FILENAME" && mv NEW"$FILENAME" "$FILENAME"
+			clear
+			echo "Successfully done"
+		else
+			clear
+			echo "Invalid File"
+		fi
+	else
+		echo "Invalid argument. Please enter valid argument(filename hh:mm:ss hh:mm:ss)"
+	fi
+}
+
+command -v ffmpeg
+if [[ $? -eq 0 ]]; then
+	trimmer "${1}" "${2}" "${3}"
+else
+	sudo apt install ffmpeg
+	trimmer "${1}" "${2}" "${3}"
+fi
