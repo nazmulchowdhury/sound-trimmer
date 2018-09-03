@@ -7,10 +7,11 @@ sound-trimmer is a command-line program to trim video and audio. It runs on Bash
 ## Installation
 
 To install it right away for all Debian based LINUX users type:
-git clone https://github.com/nazmulchowdhury/sound-trimmer.git
-cd ; sudo mv sound-trimmer /usr/bin
-sudo chown root:root /usr/bin/sound-trimmer
-sudo chmod 755 /usr/bin/sound-trimmer
+
+  git clone https://github.com/nazmulchowdhury/sound-trimmer.git
+  cd ; sudo mv sound-trimmer /usr/bin
+  sudo chown root:root /usr/bin/sound-trimmer
+  sudo chmod 755 /usr/bin/sound-trimmer
 
 ## Usage
 
